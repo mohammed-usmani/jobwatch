@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- macOS: runs pull.py --watch at login and every 15 minutes; pull.py decides whether a search is due.
+     Install: see README ("Run it on a schedule"). REPO and UV are replaced by the install command. -->
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>local.jobwatch</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/caffeinate</string><string>-is</string>
+    <string>UV</string><string>run</string><string>--project</string><string>REPO</string>
+    <string>python</string><string>REPO/pull.py</string><string>--watch</string>
+  </array>
+  <key>RunAtLoad</key><true/>
+  <key>StartInterval</key><integer>900</integer>
+  <key>StandardOutPath</key><string>REPO/logs/watch.log</string>
+  <key>StandardErrorPath</key><string>REPO/logs/watch.err</string>
+</dict>
+</plist>

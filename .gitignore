@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+.env
+config.toml
+logs/
+jobs.md
+jobs_24h.md
+jobs_24h.json
+*_jobs.json
+*_jds/
+*_skills.md
+fit.md
+.DS_Store

@@ -1,0 +1,41 @@
+# Copy to config.toml and edit. config.toml is git-ignored, so your preferences stay local.
+# Words in the lists below are matched as whole words, case-insensitive. Regex is allowed ('\.net').
+
+[search]
+# Searched on LinkedIn, Indeed and Naukri.
+terms = ["Software Engineer", "Software Developer", "Python Developer", "Backend Developer",
+         "Full Stack Developer", "React Developer", "AI Engineer"]
+# Indeed and Naukri don't rate-limit like LinkedIn, so they can take extra terms.
+indeed_extra_terms = ["Node.js Developer", "Frontend Developer", "Java Developer", "Machine Learning Engineer"]
+naukri_extra_terms = ["Node.js Developer", "Java Developer"]
+linkedin_locations = ["India"]       # e.g. ["Bengaluru, India", "India"]
+max_required_years = 3               # LinkedIn/Indeed: drop a job only if its description clearly asks for more
+naukri_max_min_years = 2             # Naukri: keep jobs whose experience range starts at or below this
+
+[filters]
+# The title must contain one of these...
+want_title = ['software', 'developer', 'engineer', 'sde', 'backend', 'back[- ]end', 'frontend', 'front[- ]end',
+              'full[- ]?stack', 'python', 'java', 'react', 'next\.?js', 'node\.?js', 'ai', 'ml', 'llm', 'genai']
+# ...and none of these.
+skip_title = ['senior', 'sr', 'staff', 'principal', 'lead', 'manager', 'director', 'head', 'architect', 'vp',
+              'intern', 'internship', 'iii', 'analyst', 'qa', 'test', 'sales', 'support', 'bpo', 'trainer',
+              'teacher', 'faculty', 'writer', 'walk-?in', 'call cent(?:er|re)', 'telecaller']
+# Companies to ignore (e.g. ones you'd rather apply to on their own careers site). Delete entries freely.
+skip_companies = ['google', 'meta', 'amazon', 'microsoft', 'apple', 'tcs', 'infosys', 'wipro', 'accenture',
+                  'cognizant', 'capgemini', 'deloitte']
+# Cities you'd work in. Empty = anywhere in India. Remote and location-less jobs are always kept.
+locations = []                       # e.g. ['bengaluru', 'bangalore', 'pune', 'hyderabad']
+# Indeed often gives only a state code ("KA, India"); list the codes for the cities above.
+state_codes = []                     # e.g. ['KA', 'MH']
+
+[schedule]
+# Local hours for a full search (--watch). Between them, a quick easy-apply pass runs every quick_pass_minutes.
+slots = [0, 6, 9, 12, 15, 18, 21]
+quick_pass_minutes = 30
+
+[fit]
+# Used by fit.py: skills you actually have (names from the list in fit.py).
+have = ["Python", "SQL", "Git", "JavaScript", "HTML/CSS", "React", "REST"]
+min_monthly_pay_inr = 0              # skip postings whose stated max pay is below this (0 = keep all)
+near = ['remote']                    # small ranking bonus when the location matches, e.g. ['pune', 'remote']
+tracks = ["backend", "fullstack", "ai"]
